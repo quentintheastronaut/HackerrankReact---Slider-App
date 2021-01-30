@@ -1,0 +1,42 @@
+@mixin alert( $color_name, $text_color, $entity:null) {
+  border-color: 1px solid var(--#{$color_name}-color);
+  color: var(--#{$color_name}-color);
+  background: rgba(var(--#{$color_name}-rgb), 0.1);
+
+  &:before {
+    position: absolute;
+    left: 16px;
+    font-size: 18px;
+    bottom: 4px;
+    content: $entity;
+  }
+
+  &.filled {
+    background: var(--#{$color_name}-color);
+    color: $text_color;
+  }
+}
+
+.alert {
+  padding: 8px 16px 8px 44px;
+  font-size: 16px;
+  border-radius: 4px;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 12px;
+  position: relative;
+
+  @include alert(primary, #ffffff);
+
+  &.info {
+    @include alert(secondary, #ffffff);
+  }
+
+  &.success {
+    @include alert(success, #ffffff);
+  }
+
+  &.error {
+    @include alert(error, #ffffff, '\26A0');
+  }
+}

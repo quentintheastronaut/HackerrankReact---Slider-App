@@ -1,0 +1,47 @@
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@include keyframes(slide-up-fade-in) {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@include keyframes(slide-in-fade-in) {
+  0% {
+    opacity: 0;
+    transform: translate(25px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+
+@include keyframes(slide-in-fade-in) {
+  0% {
+    opacity: 0;
+    transform: translate(25px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
